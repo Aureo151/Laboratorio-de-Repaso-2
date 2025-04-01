@@ -16,5 +16,24 @@ namespace Laboratorio_de_Repaso_2
         {
             InitializeComponent();
         }
+
+        private void btnVehiculo_Click(object sender, EventArgs e)
+        {
+            FormClientes formClientes = new FormClientes();
+            formClientes.Show();
+            this.Close();
+        }
+
+        private void btnAlquiler_Click(object sender, EventArgs e)
+        {
+            FormAlquiler formAlquiler = new FormAlquiler();
+            formAlquiler.Show();
+            this.Close();
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

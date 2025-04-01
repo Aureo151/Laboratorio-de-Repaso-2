@@ -61,5 +61,10 @@ namespace Laboratorio_de_Repaso_2
         {
             Mostrar();
         }
+
+        private void btnAlquiler_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

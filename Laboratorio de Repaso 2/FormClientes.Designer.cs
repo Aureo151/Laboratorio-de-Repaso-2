@@ -129,6 +129,7 @@
             this.btnAlquiler.TabIndex = 9;
             this.btnAlquiler.Text = "Ingresar Alquiler";
             this.btnAlquiler.UseVisualStyleBackColor = true;
+            this.btnAlquiler.Click += new System.EventHandler(this.btnAlquiler_Click);
             // 
             // dataGridView1
             // 
