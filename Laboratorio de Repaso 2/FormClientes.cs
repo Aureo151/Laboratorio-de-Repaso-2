@@ -64,7 +64,9 @@ namespace Laboratorio_de_Repaso_2
 
         private void btnAlquiler_Click(object sender, EventArgs e)
         {
-
+            FormAlquiler formAlquiler = new FormAlquiler();
+            formAlquiler.Show();
+            this.Close();
         }
     }
 }

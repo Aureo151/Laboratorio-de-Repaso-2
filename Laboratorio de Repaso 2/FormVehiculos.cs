@@ -12,6 +12,7 @@ namespace Laboratorio_de_Repaso_2
 {
     public partial class FormVehiculos : Form
     {
+        List <Vehiculo> vehiculos = new List<Vehiculo>();
         public FormVehiculos()
         {
             InitializeComponent();
@@ -34,6 +35,43 @@ namespace Laboratorio_de_Repaso_2
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        private void Mostrar()
+        {
+            VehiculoArchivo vehiculoArchivo = new VehiculoArchivo();
+            vehiculos = vehiculoArchivo.Leer("../../Vehiculos.json");
+
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = vehiculos;
+            dataGridView1.Refresh();
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            Mostrar();
+        }
+
+        private void btnAgregarVehi_Click(object sender, EventArgs e)
+        {
+            Vehiculo vehiculo = new Vehiculo();
+
+            vehiculo.placa = txtPlaca.Text;
+            vehiculo.marca = txtMarca.Text;
+            vehiculo.modelo = Convert.ToInt16(txtModelo.Text);
+            vehiculo.color = txtColor.Text;
+            vehiculo.precio_kilometro = Convert.ToDecimal(txtPrecio.Text);
+            
+            vehiculos.Add(vehiculo);
+
+            VehiculoArchivo vehiculoArchivo = new VehiculoArchivo();
+
+            vehiculoArchivo.Guardar("../../Vehiculos.json", vehiculos);
+
+            txtPlaca.Clear();
+            txtMarca.Clear();
+            txtModelo.Clear();
+            txtColor.Clear();
+            txtPrecio.Clear();
         }
     }
 }
