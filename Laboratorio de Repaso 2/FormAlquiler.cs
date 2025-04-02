@@ -24,14 +24,14 @@ namespace Laboratorio_de_Repaso_2
         {
             
             ClienteArchivo clienteArchivo = new ClienteArchivo();
-            List<Cliente> clientes = clienteArchivo.Leer("../../Clientes.json");
+            clientes = clienteArchivo.Leer("../../Clientes.json");
 
             cmbNIT.DataSource = clientes;
             cmbNIT.DisplayMember = "nit";
             
          
             VehiculoArchivo vehiculoArchivo = new VehiculoArchivo();
-            List<Vehiculo> vehiculos = vehiculoArchivo.Leer("../../Vehiculos.json");
+            vehiculos = vehiculoArchivo.Leer("../../Vehiculos.json");
 
             cmbPlaca.DisplayMember = "placa";
             cmbPlaca.DataSource = vehiculos;
