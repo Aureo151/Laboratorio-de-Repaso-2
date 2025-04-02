@@ -9,8 +9,10 @@ namespace Laboratorio_de_Repaso_2
     internal class Alquiler
     {
         public string nit {  get; set; }
+        public string placa { get; set; }
         public DateTime fecha_alquiler {  get; set; }
         public DateTime fecha_devolucion { get; set; }
         public int kilometros_recorridos { get; set; }
+        public decimal costo_alquiler { get; set; }
     }
 }
