@@ -68,5 +68,10 @@ namespace Laboratorio_de_Repaso_2
             formAlquiler.Show();
             this.Close();
         }
+
+        private void FormClientes_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

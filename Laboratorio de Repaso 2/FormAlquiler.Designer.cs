@@ -37,11 +37,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.dateTimePickerDevolucion = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtKmRecorridos = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnMostrar = new System.Windows.Forms.Button();
+            this.numericUpDownKm = new System.Windows.Forms.NumericUpDown();
+            this.labelMayor = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownKm)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -119,13 +122,6 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Kilometros Recorridos";
             // 
-            // txtKmRecorridos
-            // 
-            this.txtKmRecorridos.Location = new System.Drawing.Point(203, 220);
-            this.txtKmRecorridos.Name = "txtKmRecorridos";
-            this.txtKmRecorridos.Size = new System.Drawing.Size(174, 22);
-            this.txtKmRecorridos.TabIndex = 9;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(56, 289);
@@ -154,16 +150,45 @@
             this.btnMostrar.TabIndex = 12;
             this.btnMostrar.Text = "Actualizar";
             this.btnMostrar.UseVisualStyleBackColor = true;
+            this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
+            // 
+            // numericUpDownKm
+            // 
+            this.numericUpDownKm.Location = new System.Drawing.Point(203, 217);
+            this.numericUpDownKm.Name = "numericUpDownKm";
+            this.numericUpDownKm.Size = new System.Drawing.Size(174, 22);
+            this.numericUpDownKm.TabIndex = 13;
+            // 
+            // labelMayor
+            // 
+            this.labelMayor.AutoSize = true;
+            this.labelMayor.Location = new System.Drawing.Point(934, 421);
+            this.labelMayor.Name = "labelMayor";
+            this.labelMayor.Size = new System.Drawing.Size(75, 16);
+            this.labelMayor.TabIndex = 14;
+            this.labelMayor.Text = "labelMayor";
+            this.labelMayor.Visible = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(764, 430);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(129, 16);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Kilometraje mas Alto";
             // 
             // FormAlquiler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1072, 514);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.labelMayor);
+            this.Controls.Add(this.numericUpDownKm);
             this.Controls.Add(this.btnMostrar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.txtKmRecorridos);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dateTimePickerDevolucion);
             this.Controls.Add(this.label4);
@@ -177,6 +202,7 @@
             this.Text = "FormAlquiler";
             this.Load += new System.EventHandler(this.FormAlquiler_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownKm)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,10 +218,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dateTimePickerDevolucion;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtKmRecorridos;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnMostrar;
         private System.Windows.Forms.ComboBox cmbNIT;
+        private System.Windows.Forms.NumericUpDown numericUpDownKm;
+        private System.Windows.Forms.Label labelMayor;
+        private System.Windows.Forms.Label label7;
     }
 }
