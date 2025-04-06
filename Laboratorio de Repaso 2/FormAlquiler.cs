@@ -35,54 +35,70 @@ namespace Laboratorio_de_Repaso_2
             VehiculoArchivo vehiculoArchivo = new VehiculoArchivo();
             vehiculos = vehiculoArchivo.Leer("../../Vehiculos.json");
 
+            
+
             cmbPlaca.DisplayMember = "placa";
             cmbPlaca.DataSource = vehiculos;
 
             AlquilerArchivo alquilerArchivo = new AlquilerArchivo();
-            //List<Alquiler> alquilers = alquilerArchivo.Leer("../../Alquilers.json");
-            //int mayor = alquilers.Max(a => a.kilometros_recorridos);
+            List<Alquiler> alquilers = alquilerArchivo.Leer("../../Alquilers.json");
+            int mayor = alquilers.Max(a => a.kilometros_recorridos);
             labelMayor.Visible = true;
-            //labelMayor.Text = mayor.ToString();
+            labelMayor.Text = mayor.ToString();
         }
 
         private void mostrar()
         {
-            
+            ClienteArchivo clienteArchivo = new ClienteArchivo();
+            clientes = clienteArchivo.Leer("../../Clientes.json");
+
+            VehiculoArchivo vehiculoArchivo = new VehiculoArchivo();
+            vehiculos = vehiculoArchivo.Leer("../../Vehiculos.json");
+
+
+            AlquilerArchivo alquilerArchivo = new AlquilerArchivo();
+            alquilers = alquilerArchivo.Leer("../../Alquilers.json");
+
             foreach (var cliente in clientes)
-            {           
-                    foreach (var alquiler in alquilers)
+            {
+                foreach (var alquiler in alquilers)
+                {
+                    if (alquiler.nit.Trim() == cliente.nit.Trim())
                     {
-                    
-                        if (alquiler.nit == cliente.nit)
+                        foreach (var vehiculo in vehiculos)
                         {
-                        foreach(var vehiculo in vehiculos)
-                        {
-                            Reporte reporte = new Reporte();
-                            reporte.nombre = cliente.nombre;
-                            reporte.placa = vehiculo.placa;
-                            reporte.marca = vehiculo.marca;
-                            reporte.modelo = vehiculo.modelo;
-                            reporte.color = vehiculo.color;
-                            reporte.fecha_devolucion = alquiler.fecha_devolucion;
-                            reporte.costo_alquiler = alquiler.costo_alquiler;
+                            if (alquiler.placa.Trim().ToLower() == vehiculo.placa.Trim().ToLower())
+                            {
+                                
+                                Reporte reporte = new Reporte
+                                {
+                                    nombre = cliente.nombre,
+                                    placa = vehiculo.placa,
+                                    marca = vehiculo.marca,
+                                    modelo = vehiculo.modelo,
+                                    color = vehiculo.color,
+                                    fecha_devolucion = alquiler.fecha_devolucion,
+                                    costo_alquiler = alquiler.costo_alquiler
+                                };
 
-                            reportes.Add(reporte);
+                                reportes.Add(reporte);
+                            }
                         }
-                            
-
-
-                        }              
+                    }
                 }
-                //si el No de empleado
-                
             }
+
+           
+
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = reportes;
             dataGridView1.Refresh();
 
 
-            
         }
+
+
+       
         private void button1_Click(object sender, EventArgs e)
         {
             ClienteArchivo clienteArchivo = new ClienteArchivo();
